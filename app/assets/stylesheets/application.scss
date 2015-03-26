@@ -1,0 +1,219 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+
+ */
+
+@import "colors";
+@import "fonts";
+@import "foundation_and_overrides";
+
+/* 1.0 General */
+
+div.container {
+ @include grid-row();
+
+ &.grey {
+  background: $lightest-grey;
+ }
+}
+
+@mixin vertical-align {
+  position: relative;
+  bottom: 0;
+ /* -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);*/
+}
+
+/* 1.1 Headers */
+
+h1, h3, h4 {
+ text-transform: uppercase;
+}
+
+h4 {
+ color: $light-grey;
+}
+
+h2, h5 {
+ font-family: "Playfair Display";
+ font-style: italic;
+ font-weight: normal;
+}
+
+h1 {
+ font-size: rem-calc(50);
+ line-height: rem-calc(55);
+}
+
+h2 {
+ font-size: rem-calc(30); 
+ line-height: rem-calc(35);
+}
+
+h3 {
+ font-size: rem-calc(35);
+}
+
+/* 2.0 Splash Section */
+
+div.splash {
+ background: image-url('splash.png');
+ background-size: 650;
+ background-position: center center; 
+ @media #{$medium-up} {
+  min-height: rem-calc(650);
+ }
+}
+
+div.half-splash {
+ @extend .text-center;
+ @media #{$medium-up} {
+  @include grid-column(
+   $columns:6
+   );
+ }
+}
+
+div.workshops {
+  background-image: image-url("workshops.png");
+}
+
+div.biergarten {
+ background-image: image-url("biergarten.png");
+}
+
+img.logo {
+ padding-top: rem-calc(80);
+ width: 60%;
+}
+
+div.callout {
+ padding-top: rem-calc(170);
+ @extend .text-left;
+ display: inline-block;
+}
+
+hr {
+ width: 20%;
+ border-color: white;
+}
+
+div.splash h1, h2, h3 {
+ color:white;
+}
+
+/* 3.0 Headline Section */
+
+p.headline {
+ @extend .text-center;
+ margin: 0;
+ font-size: rem-calc(40);
+ line-height: rem-calc(60);
+ padding: rem-calc(50) 0;
+ @media #{$medium-up} {
+  @include grid-column(
+   $columns: 11,
+   $center: true
+   );
+ }
+}
+
+img.shield {
+ padding-bottom: rem-calc(20);
+}
+
+/* 4.0 Schedule */
+div.schedule {
+ min-height: rem-calc(1000);
+ background: image-url('ampersand.png');
+ background-position: center center;
+ background-repeat: no-repeat;
+}
+
+div.schedule-block {
+ @media #{$medium-up} {
+  @include grid-column(
+   $columns:6
+   );
+  padding: rem-calc(75);
+  padding-left: rem-calc(150);
+ }
+
+ hr {
+  border: 3px solid $light-grey;
+ }
+}
+
+div.schedule h1 {
+ font-size: rem-calc(40);
+}
+
+div.schedule h4 {
+ font-size: rem-calc(14);
+}
+
+div.schedule h4.biergarten {
+ padding-top: rem-calc(250);
+}
+
+div.schedule-item {
+ @include grid-row();
+ padding-top: rem-calc(60);
+
+ h5 {
+  color: $medium-grey;
+ }
+}
+
+div.time {
+ @include grid-column(
+   $columns:3
+  );
+ border-right: 1px solid $red;
+ h5 {
+  line-height: rem-calc(70);
+ }
+}
+
+div.time.blue {
+ border-color: $blue;
+}
+
+div.time.purple {
+ border-color: $purple;
+}
+
+div.time.green {
+ border-color: $green;
+}
+
+div.time.yellow {
+ border-color: $yellow;
+}
+
+div.item {
+ @include grid-column(
+   $columns:8,
+   $offset: 1
+  );
+}
+
+h4.vendor {
+ padding-top: rem-calc(5);
+ font-size: rem-calc(18) !important;
+ color: $black;
+}
+
